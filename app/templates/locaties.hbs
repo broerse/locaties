@@ -1,0 +1,28 @@
+<div class="container-fluid">
+	<div class="row">
+	  <!-- locatie listing -->
+		<div class="col-xs-4">
+		  <p><button {{action 'createLocatie'}}>Nieuw</button></p>
+		  <p>{{input type="text" value=query placeholder="Zoek" autofocus="autofocus"}}</p>
+			<table class='table'>
+				<thead>
+					<tr><th>Locatie</th></tr>
+				</thead>
+				<tbody>
+				{{#each filteredContent as |locatie|}}
+				<tr><td>
+					{{#link-to 'locatie' locatie}}
+					  &bull; {{locatie.naam}}
+					{{/link-to}}
+				</td></tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+
+		<!-- locatie content -->
+		<div class="col-xs-8">
+			{{outlet}}
+		</div>
+	</div>
+</div>

@@ -39,9 +39,15 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  ENV.remote_couch = 'http://localhost:5984/locaties';
+  ENV.local_couch = 'locaties';
   if (environment === 'production') {
-
+    ENV.baseURL = '/locaties/';
+    ENV.remote_couch = 'http://martinic.iriscouch.com/locaties';
   }
-
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self' " + ENV.remote_couch.substring(0, ENV.remote_couch.indexOf('/', 9))
+  };
+  
   return ENV;
 };

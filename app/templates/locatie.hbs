@@ -1,0 +1,13 @@
+{{#if isEditing}}
+	<button {{action 'doneEditing'}}>Klaar</button>
+	{{partial 'locatie-edit'}}
+{{else}}
+	<button {{action 'edit'}}>Edit</button>
+{{/if}}
+
+<hr>
+
+<dl class="dl-horizontal">
+    <dt>Naam</dt>                  <dd>{{model.naam}}</dd>
+    <dt>Opmerkingen</dt>           <dd>{{model.opmerkingen}}</dd>   
+</dl>

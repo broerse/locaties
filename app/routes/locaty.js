@@ -2,6 +2,6 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
 	model: function(params) {
-		return this.get('store').find('locatie', params.locatie_id);
+		return this.get('store').find('locaty', params.locaty_id);
 	}
 });
